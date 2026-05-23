@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node PATH (Bypass nvm-desktop)
         run: |
           # 【注意！请把下面这行的路径，替换成你刚刚用 where node 查出来的目录！】
-          $nodePath = "C:\Users\xuya\.nvmd\bin\"
+          $nodePath = "D:\Software\Development\NVM Desktop\versions\24.14.1"
           echo "$nodePath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
           Write-Host "Node PATH added: $nodePath"
       - name: Checkout repository
