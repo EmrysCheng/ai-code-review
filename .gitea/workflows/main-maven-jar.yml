@@ -13,14 +13,14 @@ jobs:
     runs-on: windows
     steps:
       - name: Checkout repository
-        uses: gitea.com/actions/checkout@v6
+        uses: https://gitea.com/actions/checkout@v6
         with:
           fetch-depth: 0
           server-url: http://www.emryscheng.top:3000
           token: ${{ secrets.ACTION_TOKEN }}
 
       - name: Set up JDK 17
-        uses: gitea.com/actions/setup-java@v5
+        uses: https://gitea.com/actions/setup-java@v5
         with:
           distribution: 'temurin'
           java-version: '17'
