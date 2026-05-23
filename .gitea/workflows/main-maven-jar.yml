@@ -1,0 +1,27 @@
+name: Build and Run AI Code Review By Main Maven Jar
+# 当有代码推送到仓库的 main 分支时，这个 Actions 工作流会被触发并执行
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        with:
+          fetch-depth: 2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'Temurin'
+          java-version: '17'
+      - name: Build with Maven
+        run: mvn clean install
+      - name: Copy ai-code-review-sdk JAR
+        run: mvn dependency:copy -Dartifact=io.github.emryscheng:ai-code-review-sdk:1.0 -DoutputDirdectory=./libs
+      - name: Run code review
+        run: java -jar ./libs/ai-code-review-sdk-1.0.jar
