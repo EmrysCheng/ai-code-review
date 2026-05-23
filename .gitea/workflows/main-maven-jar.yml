@@ -9,7 +9,8 @@ on:
       - master
 jobs:
   build:
-    runs-on: windows-latest
+    # 指定了作业运行的环境
+    runs-on: windows
     steps:
       - name: Checkout repository
         with:
