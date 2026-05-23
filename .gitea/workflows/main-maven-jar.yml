@@ -15,6 +15,17 @@ jobs:
     # 指定了作业运行的环境
     runs-on: windows
     steps:
+      - name: Check ACTION_TOKEN
+        run: |
+          if ([string]::IsNullOrEmpty($env:ACTION_TOKEN)) {
+            Write-Error "ERROR: ACTION_TOKEN is empty or not found!"
+            exit 1
+          } else {
+            Write-Output "ACTION_TOKEN is set (length: $($env:ACTION_TOKEN.Length))"
+          }
+        shell: powershell
+        env:
+          ACTION_TOKEN: ${{ secrets.ACTION_TOKEN }}
       - name: Disable Git Credential Manager
         shell: cmd
         run: |
