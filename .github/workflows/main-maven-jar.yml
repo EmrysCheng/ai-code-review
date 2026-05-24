@@ -22,16 +22,12 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: maven
 
       - name: Build with Maven
-        shell: cmd
         run: mvn clean install
 
       - name: Copy ai-code-review-sdk JAR
-        shell: cmd
         run: mvn dependency:copy -Dartifact=io.github.emryscheng:ai-code-review-sdk:1.0 -DoutputDirectory=./libs
 
       - name: Run code review
-        shell: cmd
         run: java -jar ./libs/ai-code-review-sdk-1.0.jar
