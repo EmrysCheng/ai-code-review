@@ -1,7 +1,4 @@
 name: Build and Run AI Code Review By Main Maven Jar
-defaults:
-  run:
-    shell: powershell
 # 当有代码推送到仓库的 main 分支时，这个 Actions 工作流会被触发并执行
 on:
   push:
@@ -13,7 +10,7 @@ on:
 jobs:
   build:
     # 指定了作业运行的环境
-    runs-on: windows
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: https://gitea.com/actions/checkout@v6
