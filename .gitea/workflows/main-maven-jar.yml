@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: https://gitea.com/actions/checkout@v6
+        uses: http://www.emryscheng.top:3000/actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Set up JDK 17
-        uses: https://gitea.com/actions/setup-java@v4
+        uses: http://www.emryscheng.top:3000/actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
