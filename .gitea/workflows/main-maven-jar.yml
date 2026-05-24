@@ -12,6 +12,13 @@ jobs:
     # 指定了作业运行的环境
     runs-on: ubuntu-latest
     steps:
+      - name: Cache local Maven repository
+        uses: actions/cache@v5
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
       - name: Checkout repository
         uses: http://www.emryscheng.top:3000/actions/checkout@v6
         with:
