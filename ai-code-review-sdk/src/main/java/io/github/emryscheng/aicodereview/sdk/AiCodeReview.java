@@ -8,6 +8,6 @@ package io.github.emryscheng.aicodereview.sdk;
  */
 public class AiCodeReview {
     public static void main(String[] args) {
-
+        System.out.println("Code review starting");
     }
 }
